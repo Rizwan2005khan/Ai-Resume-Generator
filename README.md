@@ -20,9 +20,9 @@ A modern **Resume Builder** application built with the **MERN stack (MongoDB, Ex
 - **Frontend:** React, TailwindCSS, Redux
 - **Backend:** Node.js, Express
 - **Database:** MongoDB
-- **AI:** OpenAI API
+- **AI:** Gamini api
 - **File Upload:** ImageKit
-- **Deployment:** Vercel / Netlify (frontend), Render / Railway (backend)
+- **Deployment:** Vercel 
 
 ## Getting Started
 
@@ -30,7 +30,7 @@ A modern **Resume Builder** application built with the **MERN stack (MongoDB, Ex
 
 - Node.js (v18+ recommended)
 - MongoDB database
-- OpenAI API key
+- Gamini API key
 - ImageKit account (optional for image uploads)
 
 ### Installation
