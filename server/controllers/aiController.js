@@ -3,6 +3,8 @@ import Resume from "../models/Resume.js";
 
 // controller for enhancing a resume's professional summary
 export const enhanceProfessionalSummary = async (req, res) => {
+   console.log("Headers:", req.headers);
+  console.log("Body:", req.body);
   try {
     const { userContent } = req.body;
 
