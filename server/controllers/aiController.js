@@ -1,38 +1,34 @@
-import ai from "../configs/ai.js";
+
 import Resume from "../models/Resume.js";
 
 // controller for enhancing a resume's professional summary
+import ai from "../configs/ai.js";
+
 export const enhanceProfessionalSummary = async (req, res) => {
-   console.log("Headers:", req.headers);
-  console.log("Body:", req.body);
   try {
     const { userContent } = req.body;
 
     if (!userContent) {
-      return res.status(400).json({ error: "User content is required" });
+      return res.status(400).json({ message: "User content is required" });
     }
 
-    const response = await ai.chat.completions.create({
-      model: process.env.OPENAI_MODEL,
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are an expert in resume writing. Your task is to enhance the professional summary of a resume. The summary should be 1-2 sentences also highlighting key skills, experience, and career objectives. Make it compelling and ATS-friendly. and only return text no options or anything else.",
-        },
-        {
-          role: "user",
-          content: userContent,
-        },
-      ],
+    const response = await ai.models.generateContent({
+      model: "gemini-3-pro-preview",
+      contents: userContent,
     });
 
-    const enhancedContent = response.choices[0].message.content;
-    res.status(200).json({ enhancedContent });
+    return res.status(200).json({
+      enhancedContent: response.text,
+    });
+
   } catch (error) {
-    return res.status(400).json({ message: error.message });
+    console.error("AI ERROR:", error);
+    return res.status(500).json({
+      message: "AI enhancement failed",
+    });
   }
 };
+
 
 // controller for enhancing a resume's job descriptions
 export const enhanceJobDescriptions = async (req, res) => {
@@ -40,30 +36,26 @@ export const enhanceJobDescriptions = async (req, res) => {
     const { userContent } = req.body;
 
     if (!userContent) {
-      return res.status(400).json({ error: "User content is required" });
+      return res.status(400).json({ message: "User content is required" });
     }
 
-    const response = await ai.chat.completions.create({
-      model: process.env.OPENAI_MODEL,
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are an expert in resume writing. Your task is to enhance the job descriptions of a resume. The job description should be only 1-2 sentences also highlighting key responsibilities and achievements. Use action verbs and quantifiable results where possible. Make it compelling and ATS-friendly. and only return text no options or anything else.",
-        },
-        {
-          role: "user",
-          content: userContent,
-        },
-      ],
+    const response = await ai.models.generateContent({
+      model: "gemini-3-pro-preview",
+      contents: userContent,
     });
 
-    const enhancedContent = response.choices[0].message.content;
-    res.status(200).json({ enhancedContent });
+    return res.status(200).json({
+      enhancedContent: response.text,
+    });
+
   } catch (error) {
-    return res.status(400).json({ message: error.message });
+    console.error("AI ERROR:", error);
+    return res.status(500).json({
+      message: "AI enhancement failed",
+    });
   }
 };
+
 
 // controller for uploading resume to the  database
 export const uploadResume = async (req, res) => {
