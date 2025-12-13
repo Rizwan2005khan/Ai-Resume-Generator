@@ -58,9 +58,9 @@ const Hero = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
+             <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">Home</a>
             <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">Features</a>
             <a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">Success Stories</a>
-            <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">Pricing</a>
             <div className="flex items-center gap-3">
               {!user ? (
                 <>
