@@ -106,7 +106,7 @@ const ColorPicker = ({ selectedColor, onChange }) => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 text-sm bg-white border border-gray-300 rounded-lg px-4 py-2 hover:border-blue-400 hover:bg-blue-50 transition-all group focus:ring-2 focus:ring-blue-500"
+        className="flex items-center gap-1 text-sm text-blue-600 bg-gradient-to-br from-blue-50 to-blue-100 ring-blue-300 hover:ring transition-all px-3 py-2 rounded-lg"
       >
         <Palette size={16} className="text-blue-600" /> 
         <span className="font-medium">Accent Color</span>

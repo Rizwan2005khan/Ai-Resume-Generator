@@ -29,7 +29,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={` transition-all duration-300 ${
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' : 'bg-white/80 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,22 +51,8 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           {user ? (
             <div className="hidden md:flex items-center space-x-4">
-              <Link
-                to="/dashboard"
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  isActive('/dashboard') ? 'text-blue-600 bg-blue-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                }`}
-              >
-                Dashboard
-              </Link>
-              <Link
-                to="/contact"
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  isActive('/contact') ? 'text-blue-600 bg-blue-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                }`}
-              >
-                Contact
-              </Link>
+              
+              
 
               {/* User Dropdown */}
               <div className="relative">
